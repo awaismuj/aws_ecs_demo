@@ -1,7 +1,7 @@
 version: '3.1'
 
 services:
-  aws-ecs-demo:
+  flask-app:
     build:
       context: ./
       dockerfile: ./Dockerfile
@@ -13,7 +13,7 @@ services:
         # - POSTGRES_PW=${POSTGRES_PW}
         # - POSTGRES_HOST=${POSTGRES_HOST}
         # - POSTGRES_DB=${POSTGRES_DB}
-    container_name: aws-ecs-demo
+    container_name: flask-app
     ports:
       - 5000:5000
     environment:
