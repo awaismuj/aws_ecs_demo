@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: eu-central-1
-      AWS_ECR_REPOSITORY_NAME: flask-app
+      AWS_ECR_REPOSITORY_NAME: flask
       AWS_ECS_SERVICE_NAME: flaskapp-service
       AWS_ECS_CLUSTER_NAME: flaskapp
 
