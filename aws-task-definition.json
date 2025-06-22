@@ -1,97 +1,91 @@
 {
-  "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::<<account_id>>:role/ecsTaskExecutionRole",
-  "containerDefinitions": [
-    {
-      "dnsSearchDomains": null,
-      "environmentFiles": null,
-      "logConfiguration": null,
-      "entryPoint": null,
-      "portMappings": [
+    "taskDefinitionArn": "arn:aws:ecs:eu-central-1:867344456438:task-definition/flaskapps:3",
+    "containerDefinitions": [
         {
-          "hostPort": 0,
-          "protocol": "tcp",
-          "containerPort": 5000
+            "name": "flask",
+            "image": "867344456438.dkr.ecr.eu-central-1.amazonaws.com/flask-app:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "flask-5000-tcp",
+                    "containerPort": 5000,
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/flaskapps",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "eu-central-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
-      ],
-      "command": null,
-      "linuxParameters": null,
-      "cpu": 0,
-      "environment": [],
-      "resourceRequirements": null,
-      "ulimits": null,
-      "dnsServers": null,
-      "mountPoints": [],
-      "workingDirectory": null,
-      "secrets": null,
-      "dockerSecurityOptions": null,
-      "memory": null,
-      "memoryReservation": 128,
-      "volumesFrom": [],
-      "stopTimeout": null,
-      "image": "<<account_id>>.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-demo-ecr",
-      "startTimeout": null,
-      "firelensConfiguration": null,
-      "dependsOn": null,
-      "disableNetworking": null,
-      "interactive": null,
-      "healthCheck": null,
-      "essential": true,
-      "links": null,
-      "hostname": null,
-      "extraHosts": null,
-      "pseudoTerminal": null,
-      "user": null,
-      "readonlyRootFilesystem": null,
-      "dockerLabels": null,
-      "systemControls": null,
-      "privileged": null,
-      "name": "aws-ecs-demo-ecr"
-    }
-  ],
-  "placementConstraints": [],
-  "memory": null,
-  "taskRoleArn": "arn:aws:iam::<<account_id>>:role/ecsTaskExecutionRole",
-  "compatibilities": [
-    "EC2"
-  ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:<<account_id>>:task-definition/aws-ecs-demo-task-definition:1",
-  "family": "aws-ecs-demo-task-definition",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    ],
+    "family": "flaskapps",
+    "executionRoleArn": "arn:aws:iam::867344456438:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 3,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
     },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.task-iam-role"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.execution-role-ecr-pull"
-    }
-  ],
-  "pidMode": null,
-  "requiresCompatibilities": [
-    "EC2"
-  ],
-  "networkMode": null,
-  "cpu": null,
-  "revision": 1,
-  "status": "ACTIVE",
-  "inferenceAccelerators": null,
-  "proxyConfiguration": null,
-  "volumes": []
+    "registeredAt": "2025-06-22T19:52:28.072Z",
+    "registeredBy": "arn:aws:iam::867344456438:root",
+    "enableFaultInjection": false,
+    "tags": []
 }
